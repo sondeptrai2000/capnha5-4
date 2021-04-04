@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.checkbtn').click(function () {
+        $('ul').toggleClass('show');
+      });
+    });
+  </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="header">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+      </label>
+      <a href="/logout"><span class="logout">&times;</span></a>
+
+    </div>
+    <div class="layout1">
+      <div class="menu">
+         <ul>
+                    <li><a href="/account/indexAdmin">Home</a></li>
+                    <li><a href="/faculity/allfaculity" >Faculty</a></li>
+                    <li><a href="/guest/allGuest">All Guest</a></li>
+                    <li><a href="/manage/allManager">All manager</a></li>
+                    <li><a href="/admin/createAccount">Create account</a></li>
+                    <li><a href="/admin/addtoFaculty">Add to Faculty</a></li>
+                </ul>
+
+      </div>
+      <div class="content">
+        <% if((data2.length == 0)&&(data.length == 0)){ %>
+          <h1>No student or Marketing Coordinator has not been registered for the class.</h1>
+          <% } %>
+
+      <% if(data2.length != 0){ %>
+      <h2>Add marketing coordinator to faculty</h2>
+      <table class="table">
+        <tr class="table1">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Action</th>
+        </tr>
+      <% } %>
+
+        <% data2.forEach(function(data2) { %>
+        <tr>
+          <td>
+            <p><%= data2.username %></p>
+          </td>
+          <td>
+            <p><%= data2.email %></p>
+          </td>
+          <td>
+            <p><%= data2.role %></p>
+          </td>
+          <td>
+              <form action="/admin/doaddtoFaculty<%= data2._id %>" method="POST">
+                  <select name="slug">
+                  <% faculity.forEach(function(faculity) { %>
+                  <option value="<%= faculity.slug %>" name="slug"><%= faculity.slug %></option>
+                  <% }); %>
+                  </select>
+                  <input type="submit" value="Add to faculty">
+              </form> 
+          </td>
+        </tr>
+        <% }); %>
+
+      </table>
+
+        <% if(data.length != 0){ %>
+            <h2>Add student to faculty</h2>
+        <table class="table">
+          <tr class="table1">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        <% } %>
+          <% data.forEach(function(data) { %>
+          <tr>
+            <td>
+              <p><%= data.username %></p>
+            </td>
+            <td>
+              <p><%= data.email %></p>
+            </td>
+            <td>
+              <p><%= data.role %></p>
+            </td>
+            <td>
+                <form action="/admin/doaddtoFaculty<%= data._id %>" method="POST">
+                    <select name="slug">
+                    <% faculity.forEach(function(faculity) { %>
+                    <option value="<%= faculity.slug %>" name="slug"><%= faculity.slug %></option>
+                    <% }); %>
+                    </select>
+                    <input type="submit" value="Add to faculty">
+                </form> 
+            </td>
+          </tr>
+          <% }); %>
+
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>@University-2021</p>
+  </div>
+
+</body>
+
+</html>

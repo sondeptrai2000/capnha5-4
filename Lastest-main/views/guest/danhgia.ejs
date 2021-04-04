@@ -1,0 +1,36 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/danhgia.css">
+    <title>Document</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+  <% data.forEach(function(data) { %>
+      <tr>
+          <%if (data.status =="Pass" &&! data.nameFile2) { %>
+              <p>You can download the file here<a href="/download/<%= data._id %>"><%= data.nameFile %></a></p>
+              <iframe src="/<%= data.filePath %>" class="viewfiles"></iframe>
+              <%if (data.filePathAnh) { %>
+                <img src="/<%= data.filePathAnh %>" alt="photo for report">
+              <% }  %>
+            <% }  %>
+          
+            <%if (data.status2 =="Pass" && data.nameFile2) { %>
+              <p>You can download the file here<a href="/download2/<%= data._id %>"><%= data.nameFile2 %></a></p>
+              <iframe src="/<%= data.filePath2 %>" class="viewfiles"></iframe>
+              <%if (data.filePathAnh2) { %>
+                <img src="/<%= data.filePathAnh2 %>" alt="photo for report">
+              <% }  %>
+            <% }  %>
+        </tr> 
+  <% }); %>
+  </body>
+
+</html>

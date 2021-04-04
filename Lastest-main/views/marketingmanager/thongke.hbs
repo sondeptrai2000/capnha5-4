@@ -1,0 +1,268 @@
+{{!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/homeadmin.css">
+  <link rel="stylesheet" href="/css/homestudent.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+  <!-- Downloaded chart.css -->
+  <link rel="stylesheet" href="chart.css">
+
+  <!-- RawGit CDN chart.css -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/theus/chart.css/v1.0.0/dist/chart.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $('.checkbtn').click(function () {
+        $('ul').toggleClass('show');
+      });
+    });
+  </script>
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="header">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+      </label>
+      <a href="/logout"><span class="logout">&times;</span></a>
+
+    </div>
+    <div class="layout1">
+      <div class="menu">
+        <ul>
+          <li><a href="/account/indexManager">Home</a></li>
+          <li><a href="/manage/allfaculity">View contributions</a></li>
+          <li><a href="/manage/allfaculitymanager">Download contributions</a></li>
+        </ul>
+
+      </div>
+      <div class="content">
+
+        {{#each data}}
+        <table>
+          <td>
+            <canvas id="bar-chart-grouped" width="400" height="400"></canvas>
+          </td>
+
+          <td>
+            <canvas id="bar-chart-grouped2" width="400" height="400"></canvas>
+          </td>
+        </table>
+
+
+
+        <script>
+          new Chart(document.getElementById("bar-chart-grouped"), {
+            type: 'bar',
+            data: {
+              labels: ["2021"],
+              datasets: [
+                {
+                  label: "tongbaidanop",
+                  backgroundColor: "#3e95cd",
+                  data: [{{ tongbaidanop }}, 0]
+            }, {
+            label: "sobaidapass",
+            backgroundColor: "#8e5ea2",
+            data: [{{ sobaidapass }}, 0]
+        }, {
+              label: "Tỉ lệ pass bài",
+              backgroundColor: "red",
+              data: [{{ sobaidapass }} / {{ tongbaidanop }}* 100, 0]
+        }
+      ]
+    },
+            options: {
+            title: {
+              display: true,
+              text: 'Biểu thị số bài nộp và thông qua'
+            }
+          }
+});
+
+
+          new Chart(document.getElementById("bar-chart-grouped2"), {
+            type: 'bar',
+            data: {
+              labels: ["1900"],
+              datasets: [
+                {
+                  label: "hocsinhcuakhoa",
+                  backgroundColor: "#3e95cd",
+                  data: [{{ hocsinhcuakhoa }}, 0]
+            }, {
+            label: "soHocsinhnopbai",
+            backgroundColor: "#8e5ea2",
+            data: [{{ soHocsinhnopbai }}, 0]
+        }, {
+              label: "Tỉ lệ học sinh nộp bài",
+              backgroundColor: "red",
+              data: [{{ soHocsinhnopbai }} / {{ hocsinhcuakhoa }}* 100, 0]
+        }
+      ]
+    },
+            options: {
+            title: {
+              display: true,
+              text: 'Biểu đồ biểu thị số học sinh của khoa và số học sinh nộp bài'
+            }
+          }
+});
+        </script>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>@University-2021</p>
+  </div>
+
+
+</body>
+
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+  <!-- Downloaded chart.css -->
+  <link rel="stylesheet" href="chart.css">
+
+  <!-- RawGit CDN chart.css -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/theus/chart.css/v1.0.0/dist/chart.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $('.checkbtn').click(function () {
+        $('ul').toggleClass('show');
+      });
+    });
+  </script>
+
+
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="header">
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+      </label>
+      <a href="/logout"><span class="logout">&times;</span></a>
+
+    </div>
+    <div class="layout1">
+      <div class="menu">
+        <ul>
+          <li><a href="/account/indexManager">Home</a></li>
+          <li><a href="/manage/allfaculity">View contributions</a></li>
+          <li><a href="/manage/allfaculitymanager">Download contributions</a></li>
+        </ul>
+
+      </div>
+      <div class="content">
+
+        {{#each data}}
+
+            <div id="piechart"></div>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+            <div id="piechart2"></div>
+            <script type="text/javascript2" src="https://www.gstatic.com/charts/loader.js"></script>          
+
+
+
+
+
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'contributions'],
+  ['not rate', {{tongbaidanop}}-{{fail}}-{{sobaidapass}}],
+  ['Fail', {{fail}}],
+  ['Pass', {{sobaidapass}}]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+
+  var options = {'title':'Statistics of student contributions', 'width':300, 'height':350};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+
+</script>
+
+
+<div class="swapbar">
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'student'],
+  ['Number of student upload file', {{soHocsinhnopbai}}],
+  ['Number of student not upload file', {{hocsinhcuakhoa}}-{{soHocsinhnopbai}}]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Number of students contributing articles', 'width':300, 'height':350};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+  chart.draw(data, options);
+}
+</script>
+
+{{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>@University-2021</p>
+  </div>
+
+
+</body>
+
+</html>
