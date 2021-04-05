@@ -31,7 +31,13 @@ class AdminController {
             if(err){
                 res.json(err)
             }else{
-                res.redirect("/admin/addtoFaculty")           
+                if(role == "coordinator" || role == "student"){
+                    res.redirect("/admin/addtoFaculty")           
+                }else if (role == "guest"){
+                    res.redirect("/guest/allGuest")           
+                }else if(role == "manager"){
+                    res.redirect("/manage/allManager")           
+                }
             }
         })
     }
@@ -48,7 +54,7 @@ class AdminController {
     }
     doaddtoFaculty(req,res ){
         AccountModel.findOneAndUpdate({_id: req.params.id},{slug: req.body.slug},function(err,result){
-           res.json(result)
+            res.send('<script>alert("Successfully added");window.back();</script>')
         })
     }
 }
