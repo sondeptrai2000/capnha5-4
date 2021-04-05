@@ -15,6 +15,7 @@ class AdminController {
     }
     docreateAccount(req,res ){
         var password = req.body.password
+        var role = req.body.Role
         const salt = bcrypt.genSaltSync(saltRounds);
         const hash = bcrypt.hashSync(password, salt);
         let newAccount = AccountModel({
@@ -22,7 +23,7 @@ class AdminController {
             password :hash,
             email: req.body.email,
             slug:"none",
-            role : req.body.Role,
+            role : role,
             phone:req.body.phone,
             birthday:req.body.birthday,
             address:req.body.address

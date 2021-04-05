@@ -9,21 +9,12 @@
   <link rel="stylesheet" href="/css/updateteacher.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.checkbtn').click(function () {
-        $('ul').toggleClass('show');
-      });
-    });
-  </script>
-
   <title>Document</title>
 </head>
 
 <body>
   <div class="layout">
     <div class="header">
-      <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fa fa-bars"></i>
       </label>
@@ -41,65 +32,87 @@
 
       </div>
       <div class="content">
-        <h2>Create Account</h2>
-        <div class="swap">
         <form method="post" action="/admin/docreateAccount">
-        <div class="form-group">
+<table border="1">
+    <tr>
+        <th colspan="3">ACCOUNT INFORMATION</th>
+    </tr>
+    <tr>
+        <td>
           <label for="faculityname">Name</label>
-          <input type="text" name="username" pattern="[a-zA-Z\s]+" title="Username shouldn't contain number. e.g. john" required >
           
-        </div>
-          <br>
-          <div class="form-group">
-            <label for="topic">Email</label>
+        </td>
+        <td>
+          <input type="text" name="username" pattern="[a-zA-Z\s]+" title="Username shouldn't contain number. e.g. john" required >
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <label for="topic">Email</label>
+          
+        </td>
+        <td>
           <input type="email" name="email" class="emailinput">
-          </div>
-
-          <br>
-          <div class="form-group">
-             <label for="topic">Password</label>
-                    <input type="password" name="password" title="Password needs to be at least 8 characters without special characters (/,?, Etc)" minlength="8" pattern="[a-zA-Z0-9]+"  required class="pwinput">
-
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="topic">Role</label>
-                <select class="Role" name="Role">
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <label for="topic">Password</label>
+  
+        </td>
+        <td>
+          <input type="password" name="password" title="Password needs to be at least 8 characters without special characters (/,?, Etc)" minlength="8" pattern="[a-zA-Z0-9]+"  required class="pwinput">
+        </td>
+    </tr>
+    <tr>
+        <td>
+           <label for="topic">Role</label>
+                     
+          </td>
+        <td>
+          <select class="Role" name="Role">
                 <option value="guest">Guest</option>
                 <option value="student">Student</option>
                 <option value="coordinator">Marketing Coordinator</option>
                 <option value="manager">Marketing Manager</option>
-                </select>          
-            </div>
-          <br>
-          <div class="form-group">
-             <label for="topic">Birthday</label>
+          </select>     
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <label for="topic">Birthday</label>
+          
+        </td>
+        <td>
           <input type="date" name="birthday" style="width:173px" required class="emailinput">
-          </div>
-
-        <br>
-          <div class="form-group">
-             <label for="topic">Phone</label>
-          <input type="text" name="phone" class="emailinput"  pattern="(\+84|0)\d{8,10}" minlength="8" maxlength="10" title="Phone number must not contain letters or any other characters.Phone number must be between 8-10 numbers." required>
-          </div>
-
-        <br>
-          <div class="form-group">
-             <label for="topic">Address</label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+          <label for="topic">Phone</label>
+        </td>
+        <td>
+          <input type="text" name="phone" class="emailinput"  pattern="(\+84|0)\d{8,10}" minlength="8" maxlength="10" title="Phone number must not contain letters or any other characters.Phone number must be between 8-10 numbers." required>  
+        </td>
+    </tr>
+      <tr>
+        <td>
+         <label for="topic">Address</label>
+        </td>
+        <td>
           <input type="text"  name="address" class="emailinput" required>
-          </div>  
-          <br>
-         <br>
-          <button type="submit" class="btn">Submit</button>
-      </div>
-      </form>
+        </td>
+    </tr>
+</table>
+<button type="submit" class="btn">Sign up account</button>
       </div>
     </div>
 
   </div>
 
 
-
+  
+  
   <div class="footer">
     <p>@University-2021</p>
   </div>
